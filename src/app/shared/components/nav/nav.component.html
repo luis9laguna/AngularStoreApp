@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
+  <img class="logo" src="../../../assets/img/store.png" alt="store">
+  <a class="navbar-brand" routerLink="/">Store</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="">
+      <a class="nav-link" routerLink="/">Home</a>
+    </li>
+    <li class=" dropdown" routerLinkActive="active">
+      <a class="nav-link" id="navbarDropdown" role="button" routerLink="/category/all"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Category
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+        <a class="dropdown-item asd">asd</a>
+      </div>
+    </li>
+  </ul>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
+        <img src="../../assets/img/search.png" alt="search">
+      </a>
+        <form  class="dropdown-menu mr-5 form-inline" aria-labelledby="navbarDropdown">
+          <input #term class="form-control" type="search" placeholder="Search"
+          (keyup)="search(term.value)">
+        </form>
+    </li>
+
+    <li>
+      <a routerLink="/user/login">
+        <img src="../../assets/img/login.png" alt="login">
+      </a>
+    </li>
+    <li>
+       <a routerLink="/" class="ml-2">
+        <img src="../../assets/img/cart.png" alt="cart">
+      </a>
+    </li>
+</nav>

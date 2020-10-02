@@ -1,0 +1,27 @@
+<div class="container m-auto">
+  <div class="mt-5 container all w-50">
+    <h2 class="text-center text-danger">Login</h2>
+    <form (ngSubmit)="loginForm" [formGroup]="loginForm" class="w-50 m-auto text-danger">
+      <div class="mb-5">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" class="form-control" type="text" placeholder="Name" formcontrolName="name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input id="email" class="form-control" type="email" placeholder="Email" formcontrolName="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" class="form-control" type="password" placeholder="Password" formcontrolName="password">
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary m-auto" type="submit">Login</button>
+      </div>
+      <div class="text-center">
+        Register <a routerLink="/user/register">here</a>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

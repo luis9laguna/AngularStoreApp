@@ -1,0 +1,21 @@
+.container{
+    height: 40px;
+    background: #343A40;
+    color: white;
+    bottom: 0;
+    position: fixed;
+    left: 4%;
+    right: 4%;
+    width: 100%;
+}
+
+p{
+    transition: 300ms;
+    margin-top: 7px;
+}
+
+.container:hover{
+    p{        
+        color: #ff002be8;
+    }
+}
