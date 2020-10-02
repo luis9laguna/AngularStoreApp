@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //ROUTE CENTRAL
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +24,8 @@ import { ComponentsModule } from './shared/components/components.module';
     AppRoutingModule,
     ComponentsModule,
     PagesModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

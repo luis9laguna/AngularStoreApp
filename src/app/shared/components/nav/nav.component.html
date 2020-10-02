@@ -11,7 +11,7 @@
         Category
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-        <a class="dropdown-item asd">asd</a>
+        <a class="dropdown-item">asd</a>
       </div>
     </li>
   </ul>
@@ -26,11 +26,17 @@
         </form>
     </li>
 
-    <li>
-      <a routerLink="/user/login">
-        <img src="../../assets/img/login.png" alt="login">
-      </a>
-    </li>
+      <li class=" dropdown" routerLinkActive="active">
+        <a class="nav-link" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="../../assets/img/login.png" alt="login">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+          <a class="dropdown-item" routerLink="/user/login">Login</a>
+          <a class="dropdown-item">Orders</a>
+          <a class="dropdown-item pointer" (click)="logout()">Logout</a>
+        </div>
+      </li>
     <li>
        <a routerLink="/" class="ml-2">
         <img src="../../assets/img/cart.png" alt="cart">

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { UsersService } from 'src/app/shared/services/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -20,12 +24,22 @@ export class RegisterComponent {
     validators: this.samepasswords('password', 'password2')
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private userService: UsersService,
+              private router: Router) { }
 
   createUser(){
     this.formSubmitted = true;
-    console.log(this.registerForm.value);
-    console.log(this.registerForm);
+
+    if( this.registerForm.invalid ){
+      return;
+    }
+    this.userService.register( this.registerForm.value )
+        .subscribe(data => {
+           this.router.navigateByUrl('/');
+        }, (err) => {
+          Swal.fire('Error', err.error.message, 'error');
+        });
   }
 
   fieldInvalid( field: string ): boolean{
