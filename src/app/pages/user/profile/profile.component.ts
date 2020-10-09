@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  public editar: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  setEditar(){
+    this.editar = true;
+  }
+
+  unsetEditar(){
+    this.editar = false;
+  }
+
 
 }

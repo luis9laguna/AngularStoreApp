@@ -1,0 +1,19 @@
+<!--FORMULARIO DE REGISTRO-->
+<div class="container mb-5 mt-5 animated fadeIn">
+    <h1 class="text-center title m-auto w-50" *ngIf="!isEdit">Create Category</h1>
+    <h1 class="text-center title m-auto w-50" *ngIf="isEdit">Edit Category</h1>
+
+    <div class="all w-75 m-auto">
+
+        <form [formGroup]="categoryForm" (submit)="saveCategory()"
+            class="col-md-5 m-auto text-center font-weight-bold">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Name" formControlName="name">
+            </div>
+            <button [disabled]="categoryForm.invalid" type="submit" class="btn btn-danger">
+                Save Category
+            </button>
+        </form>
+    </div>
+</div>

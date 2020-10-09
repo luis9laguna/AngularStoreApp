@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
-import { UsersService } from 'src/app/shared/services/users.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 declare const gapi:any;
 
@@ -15,7 +15,6 @@ declare const gapi:any;
 export class LoginComponent implements OnInit{
 
   public auth2: any;
-
   public loginForm = this.fb.group({
     email: [ 
       localStorage.getItem('email') || '', 
@@ -26,8 +25,8 @@ export class LoginComponent implements OnInit{
   });
 
   constructor(private fb: FormBuilder,
-              private userService: UsersService,
-              private router: Router) { }
+              private userService: UserService,
+              private route: Router) { }
 
 
   ngOnInit() {
@@ -42,7 +41,9 @@ export class LoginComponent implements OnInit{
       }else{
         localStorage.removeItem('email');
       }
+      
       //REDIRECCION
+      location.href ="/";
     },(err) => {
       Swal.fire('Error', err.error.message, 'error');
     });
@@ -73,7 +74,7 @@ export class LoginComponent implements OnInit{
           const id_token = googleUser.getAuthResponse().id_token;
           this.userService.loginGoogle(id_token)
               .subscribe(resp => {
-                this.router.navigateByUrl('/');
+                this.route.navigateByUrl('/');
               });
         }, (error) => {
           alert(JSON.stringify(error, undefined, 2));

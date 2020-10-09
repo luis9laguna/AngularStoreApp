@@ -1,1 +1,51 @@
-<p>profile works!</p>
+<div *ngIf="editar; then siEditar else noEditar"></div>
+
+<ng-template #noEditar>
+    <div class="text-center animated fadeIn">
+        <h1 class="title w-50 m-auto">Profile</h1>
+        <div class="all w-50 m-auto text-danger">
+            <div>
+                <label class="h2 option" for="name">Name</label>
+                <div class="h4" name="name">Pepe</div>
+            </div>
+            <div>
+                <label class="h2 option" for="surname">Surname</label>
+                <div class="h4" name="surname">Rodriguez</div>
+            </div>
+            <div>
+                <label class="h2 option" for="email">Email</label>
+                <div class="h4" name="email">luis9laguna@gmail.com</div>
+            </div>
+
+            <hr class="w-50">
+            <button class="btn btn-danger button" (click)="setEditar()">Editar</button>
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #siEditar>
+    <!--FORMULARIO DE REGISTRO-->
+    <div class="text-center animated fadeIn">
+        <h1 class="text-center title w-50 m-auto">User Edit</h1>
+            <form class="all w-50 m-auto text-danger">
+                <div class="mb-5 mt-5">
+                    <br>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Surname">Surname</label>
+                        <input class="form-control" type="text" placeholder="Surname">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input class="form-control" type="email" placeholder="Email">
+                    </div>
+                    <hr class="w-50">
+                    <button class="btn btn-danger mb-5 ml-5" (click)="unsetEditar()">Save Changes</button>
+                </div>
+            </form>
+        </div>
+</ng-template>

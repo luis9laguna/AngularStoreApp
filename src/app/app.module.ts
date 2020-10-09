@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 //MODULECOMPONENTS
 import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './shared/components/components.module';
-
+ 
 
 @NgModule({
   declarations: [
@@ -23,9 +23,8 @@ import { ComponentsModule } from './shared/components/components.module';
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
-    PagesModule,
-    FormsModule,
     HttpClientModule,
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,40 +6,48 @@
       <a class="nav-link" routerLink="/">Home</a>
     </li>
     <li class=" dropdown" routerLinkActive="active">
-      <a class="nav-link" id="navbarDropdown" role="button" routerLink="/category/all"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link" id="navbarDropdown" role="button" routerLink="/category/all" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
         Category
       </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-        <a class="dropdown-item">asd</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" *ngFor="let category of categories" [routerLink]="['/category', category.uid]">
+          {{category.name}}
+        </a>
+        <a class="dropdown-item" routerLink="/product/all">
+          All Products
+        </a>
       </div>
     </li>
   </ul>
 
-    <li class="nav-item dropdown">
-      <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
-        <img src="../../assets/img/search.png" alt="search">
-      </a>
-        <form  class="dropdown-menu mr-5 form-inline" aria-labelledby="navbarDropdown">
-          <input #term class="form-control" type="search" placeholder="Search"
-          (keyup)="search(term.value)">
-        </form>
-    </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
+      <img src="../../assets/img/search.png" alt="search">
+    </a>
+    <div class="dropdown-menu mr-5 form-inline" aria-labelledby="navbarDropdown">
+      <input #term class="form-control" type="search" placeholder="Search" (keyup)="search(term.value)">
+    </div>
+  </li>
 
-      <li class=" dropdown" routerLinkActive="active">
-        <a class="nav-link" id="navbarDropdown" role="button"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="../../assets/img/login.png" alt="login">
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-          <a class="dropdown-item" routerLink="/user/login">Login</a>
-          <a class="dropdown-item">Orders</a>
-          <a class="dropdown-item pointer" (click)="logout()">Logout</a>
-        </div>
-      </li>
-    <li>
-       <a routerLink="/" class="ml-2">
-        <img src="../../assets/img/cart.png" alt="cart">
-      </a>
-    </li>
+  <li class=" dropdown" routerLinkActive="active">
+    <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      <img src="../../assets/img/login.png" alt="login">
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+      <a *ngIf="!logged" class="dropdown-item" routerLink="/user/login">Login</a>
+      <div *ngIf="logged">
+        <a class="dropdown-item" routerLink="/user/profile">Profile</a>
+        <a class="dropdown-item" routerLink="/admin">Admin</a>
+        <a class="dropdown-item pointer" (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </li>
+  <li>
+    <a routerLink="/" class="ml-2">
+      <img src="../../assets/img/cart.png" alt="cart">
+    </a>
+  </li>
 </nav>

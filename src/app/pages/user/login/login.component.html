@@ -1,15 +1,15 @@
-<div class="container m-auto">
+<div class="container m-auto animated fadeIn">
+  <h1 class="text-center title w-50 m-auto">Login</h1>
   <div class="mt-5 container all w-50">
-    <h2 class="text-center text-danger">Login</h2>
-    <form (ngSubmit)="login()" [formGroup]="loginForm" class="w-50 m-auto text-danger">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" class="w-50 m-auto font-weight-bold">
       <div class="mb-5">
       <div class="form-group">
         <label for="email">Email address</label>
-        <input id="email" class="form-control" type="email" placeholder="Email" formControlName="email">
+        <input class="form-control" type="email" placeholder="Email" formControlName="email">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input id="password" class="form-control" type="password" placeholder="Password" formControlName="password">
+        <input class="form-control" type="password" placeholder="Password" formControlName="password">
       </div>
       <div class="form-group">
         <input class="checkbox mr-1" id="checkbox" type="checkbox" formControlName="remember">

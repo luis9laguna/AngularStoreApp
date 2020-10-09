@@ -1,1 +1,55 @@
-<p>admin works!</p>
+<div class="container text-center animated fadeIn">
+    <h1 class="title m-auto text-center w-50">Categories & Products</h1>
+    <div class="all">
+    <div>
+        <a class="btn btn-danger mr-3 mb-3" routerLink="/product/create">Create Product</a>
+        <a class="btn btn-danger mb-3" routerLink="/category/create">Create Category</a>
+    </div>
+    <div class="border text-dark">
+        <div class="row">
+            <div class="col-2" *ngFor="let category of categories">
+                <a class="btn btn-danger mb-2 mt-4 text-white" (click)="productsByCategory(category.uid)">
+                    {{category.name}}
+                </a>
+                <br>
+                <a type="button" [routerLink]="['/category/edit/', category.uid]">
+                    <img src="../../../assets/img/edit.png" alt="edit">
+                </a>
+                <a class="ml-2" (click)="delete([category.uid, 'category'])" type="button">
+                    <img src="../../../assets/img/delete.png" alt="delete">
+                </a>
+            </div>
+        </div>
+        <hr>
+        <table class="table m-auto ">
+
+            <thead class="thead-dark row m-auto">
+                <th class="col h5">Name</th>
+                <th class="col h5">Price</th>
+                <th class="col h5">Stock</th>
+                <th class="col h5">Options</th>
+
+            </thead>
+
+
+            <tbody class="col-12" *ngFor="let product of products">
+
+                <tr class="row m-auto">
+                    <td class="col text-danger font-weight-bold">{{product.name}}</td>
+
+                    <td class="col">{{product.price}}</td>
+                    <td class="col">{{product.stock}}</td>
+                    <td class="col">
+                        <a type="button" [routerLink]="['/product/edit/', product.uid]">
+                            <img src="../../../assets/img/edit.png" alt="edit">
+                        </a>
+                        <a class="ml-2" (click)="delete([product.uid, 'product'])" type="button">
+                            <img src="../../../assets/img/delete.png" alt="delete">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

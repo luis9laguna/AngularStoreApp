@@ -7,26 +7,37 @@ import { RouterModule } from "@angular/router";
 import { CategoriesRoutingModule } from './categories.routing';
 
 //COMPONENTS
-import { NewEditComponent } from './new-edit/new-edit.component';
+import { CreateCategoryComponent } from './create-edit/create-category.component';
+import { EditCategoryComponent } from './create-edit/edit-category.component';
 import { AllCategoriesComponent } from './all-categories/all-categories.component';
 import { DetailCategoryComponent } from './detail-category/detail-category.component';
 
+//MODULESCOMPONENTS
+import { PipesModule } from 'src/app/shared/pipes/pipes.module';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
-    NewEditComponent,
     AllCategoriesComponent,
-    DetailCategoryComponent
-
+    DetailCategoryComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent
   ],
   exports: [
-    NewEditComponent,
     AllCategoriesComponent,
-    DetailCategoryComponent
+    DetailCategoryComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent
   ],
   imports: [
     CommonModule,
     CategoriesRoutingModule,
-    RouterModule
+    RouterModule,
+    PipesModule,
+    ComponentsModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CategoriesModule { }

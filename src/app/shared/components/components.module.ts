@@ -6,23 +6,25 @@ import { RouterModule } from "@angular/router";
 //COMPONENTS
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-import { CardsComponent } from './cards/cards.component';
+import { CardComponent } from './card/card.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
   declarations: [
     NavComponent,
     FooterComponent,
-    CardsComponent
+    CardComponent,
   ],
   exports: [
     NavComponent,
     FooterComponent,
-    CardsComponent
+    CardComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    PipesModule,
   ]
 })
 export class ComponentsModule { }
